@@ -14,7 +14,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "3x5_3.h"
+#include "3x5_2.h"
 
 #ifdef RGB_MATRIX_ENABLE
 
@@ -37,10 +37,10 @@ led_config_t g_led_config = { {
             {15, 14,  9,  8,  3},
     {NO_LED, NO_LED,  2,  1,  0},
                                     // Right 1-18
-                                    {23, 24, 29, 30, 35},
-                                    {22, 25, 28, 31, 34},
-                                    {21, 26, 27, 32, 33},
-                                    {18, 19, 20, NO_LED, NO_LED},
+                                    {21, 22, 27, 28, 33},
+                                    {20, 23, 26, 29, 32},
+                                    {19, 24, 25, 30, 31},
+                                    {17, 18, NO_LED, NO_LED, NO_LED},
 }, {
     // LED index to physical position
     // Left 1-18
@@ -50,17 +50,17 @@ led_config_t g_led_config = { {
     // Right 1-18
     {143,85},{163,85},{183,85},{163,64},{163,43},{163,21},
     {183,21},{183,43},{183,64},{204,64},{204,43},{204,21},
-    {224,21},{224,43},{224,64},{244,64},{244,43},{244,21}
+    {224,21},{224,43},{224,64},{244,64},{244,43}
 }, {
     // LED index to flag
     // Left 1-18
     4,4,4,4,4,4,
     4,4,4,4,4,4,
-    4,4,4,8,8,8,
+    4,4,4,8,8,4,
     // Right 1-18
     4,4,4,4,4,4,
     4,4,4,4,4,4,
-    4,4,4,8,8,8
+    4,4,4,8,8
 } };
 
 #endif

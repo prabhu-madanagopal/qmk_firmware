@@ -1,8 +1,8 @@
 {
-    "keyboard_name": "Dactyl Minidox (3x5+3)",
-    "manufacturer": "DLFord",
+    "keyboard_name": "Firefly (3x5+2)",
+    "manufacturer": "Prabhu Madanagopal",
     "url": "https://www.dlford.io/keyboard-build-guide-per-key-rgb-leds/",
-    "maintainer": "dlford",
+    "maintainer": "prabhu-madangopal",
     "usb": {
         "vid": "0x444D",
         "pid": "0x3536",
@@ -10,9 +10,9 @@
     },
     "processor": "atmega32u4",
     "bootloader": "caterina",
-    "community_layouts": ["split_3x5_3"],
+    "community_layouts": ["split_3x5_2"],
     "layouts": {
-        "LAYOUT_split_3x5_3": {
+        "LAYOUT_split_3x5_2": {
             "layout": [
                 {"x": 0, "y": 0},
                 {"x": 1, "y": 0},
@@ -50,13 +50,11 @@
                 {"x": 13, "y": 2},
                 {"x": 14, "y": 2},
 
-                {"x": 2, "y": 3},
                 {"x": 3, "y": 3},
                 {"x": 4, "y": 3},
 
                 {"x": 10, "y": 3},
-                {"x": 11, "y": 3},
-                {"x": 12, "y": 3}
+                {"x": 11, "y": 3}
             ]
         }
     }

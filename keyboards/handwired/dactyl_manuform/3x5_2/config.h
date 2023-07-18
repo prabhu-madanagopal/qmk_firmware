@@ -59,19 +59,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #undef MOUSEKEY_WHEEL_MAX_SPEED
 #define MOUSEKEY_WHEEL_MAX_SPEED 3
-#define PMW33XX_CS_PIN D4
-#define SPLIT_POINTING_ENABLE
-#define POINTING_DEVICE_COMBINED
-#define POINTING_DEVICE_AUTO_MOUSE_ENABLE
-// only required if not setting mouse layer elsewhere
-#define AUTO_MOUSE_DEFAULT_LAYER 3
-#define POINTING_DEVICE_TASK_THROTTLE_MS 1
 
 
-#define SPI_SCK_PIN F4
-#define SPI_MOSI_PIN F5
-#define SPI_MISO_PIN F6
-#define SPI_DRIVER SPID0
+
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #undef LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
@@ -82,8 +72,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MASTER_RIGHT
 #ifdef RGBLIGHT_ENABLE
 #  define RGB_DI_PIN F7
-#  define RGBLED_NUM 36
-#  define RGBLED_SPLIT { 18, 18 }
+#  define RGBLED_NUM 35
+#  define RGBLED_SPLIT { 18, 17 }
 #  define RGBLIGHT_SLEEP
 #  define RGBLIGHT_LIMIT_VAL 150 // limits maximum brightness of LEDs to 150 out of 255. Higher may cause the controller to crash.
 #  define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_BREATHING // Sets the default mode, if none has been set
@@ -123,8 +113,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef RGB_MATRIX_ENABLE
 #  define RGB_DI_PIN F7
-#  define RGB_MATRIX_LED_COUNT 36
-#  define RGB_MATRIX_SPLIT { 18, 18 }
+#  define WS2812_DI_PIN F7
+#  define RGB_MATRIX_LED_COUNT 35
+#  define RGB_MATRIX_SPLIT { 18, 17 }
 #  define RGB_MATRIX_CENTER { 133, 54 }
 // #  define RGB_MATRIX_TIMEOUT 300000 // number of milliseconds to wait until disabling effects
 #  define RGB_DISABLE_WHEN_USB_SUSPENDED // turn off effects when suspended
@@ -142,7 +133,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #  define RGB_MATRIX_SPD_STEP 10
 #  define SPLIT_LAYER_STATE_ENABLE
 #  define RGB_TRIGGER_ON_KEYDOWN      // Triggers RGB keypress events on key down. This makes RGB control feel more responsive. This may cause RGB to not function properly on some boards
-
 // Enable animations
 #  define ENABLE_RGB_MATRIX_ALPHAS_MODS                 // Static dual hue speed is hue for secondary hue
 #  define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN            // Static gradient top to bottom speed controls how much gradient changes
