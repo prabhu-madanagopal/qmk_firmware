@@ -1,6 +1,8 @@
 # Build Options
 #   change yes to no to disable
 #
+MCU = RP2040
+BOOTLOADER = rp2040
 BOOTMAGIC_ENABLE = yes      # Enable Bootmagic Lite
 MOUSEKEY_ENABLE = yes       # Mouse keys
 EXTRAKEY_ENABLE = yes       # Audio control and System control
@@ -17,8 +19,8 @@ RGB_MATRIX_DRIVER = WS2812
 SPLIT_KEYBOARD = yes
 #RGBLIGHT_SUPPORTED = yes
 RGB_MATRIX_SUPPORTED = yes
-
-#SERIAL_DRIVER = vendor
+WPM_ENABLE = yes
+SERIAL_DRIVER = vendor
 POINTING_DEVICE_ENABLE = yes
 POINTING_DEVICE_DRIVER = pmw3360
 MOUSE_SHARED_EP = yes

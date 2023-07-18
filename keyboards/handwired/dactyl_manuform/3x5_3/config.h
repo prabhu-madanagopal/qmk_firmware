@@ -18,18 +18,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 // wiring of each half
-#define MATRIX_COL_PINS { C6, D7, E6, B4, B5 }
-#define MATRIX_ROW_PINS { B1, B3, B2, B6 }
+#define MATRIX_COL_PINS { GP5, GP6, GP7, GP8, GP9 }
+#define MATRIX_ROW_PINS { GP22, GP20, GP23, GP21 }
 
 #define DIODE_DIRECTION ROW2COL
 
 //split config
 //#define SOFT_SERIAL_PIN D2  // or D1, D2, D3, E6
 
-
+#define USE_SERIAL
 #define SERIAL_USART_FULL_DUPLEX   // Enable full duplex operation mode.
-#define SERIAL_USART_TX_PIN D3     // USART TX pin
-#define SERIAL_USART_RX_PIN D2     // USART RX pin
+#define SERIAL_USART_TX_PIN GP0     // USART TX pin
+#define SERIAL_USART_RX_PIN GP1     // USART RX pin
+#define SERIAL_PIO_USE_PIO0
+#define SERIAL_USART_TIMEOUT     100  // USART driver timeout. default 100
+#define SERIAL_USART_SPEED 921600
 #define SERIAL_USART_PIN_SWAP      // Swap TX and RX pins if keyboard is master halve. (Only available on some MCUs)
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
@@ -59,7 +62,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #undef MOUSEKEY_WHEEL_MAX_SPEED
 #define MOUSEKEY_WHEEL_MAX_SPEED 3
-#define PMW33XX_CS_PIN D4
+#define PMW33XX_CS_PIN GP4
 #define SPLIT_POINTING_ENABLE
 #define POINTING_DEVICE_COMBINED
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
@@ -68,9 +71,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define POINTING_DEVICE_TASK_THROTTLE_MS 1
 
 
-#define SPI_SCK_PIN F4
-#define SPI_MOSI_PIN F5
-#define SPI_MISO_PIN F6
+#define SPI_SCK_PIN GP29
+#define SPI_MOSI_PIN GP28
+#define SPI_MISO_PIN GP27
 #define SPI_DRIVER SPID0
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #undef LOCKING_SUPPORT_ENABLE
@@ -122,7 +125,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifdef RGB_MATRIX_ENABLE
-#  define RGB_DI_PIN F7
+#  define RGB_DI_PIN GP26
 #  define RGB_MATRIX_LED_COUNT 36
 #  define RGB_MATRIX_SPLIT { 18, 18 }
 #  define RGB_MATRIX_CENTER { 133, 54 }

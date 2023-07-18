@@ -31,7 +31,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SERIAL_USART_TX_PIN D3     // USART TX pin
 #define SERIAL_USART_RX_PIN D2     // USART RX pin
 #define SERIAL_USART_PIN_SWAP      // Swap TX and RX pins if keyboard is master halve. (Only available on some MCUs)
-#define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
 #undef TAPPING_TERM
 #define TAPPING_TERM 240
@@ -71,6 +70,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#undef PERMISSIVE_HOLD
 #define MASTER_RIGHT
 #ifdef RGBLIGHT_ENABLE
+#  define WS2812_DI_PIN F7
 #  define RGB_DI_PIN F7
 #  define RGBLED_NUM 35
 #  define RGBLED_SPLIT { 18, 17 }
@@ -112,6 +112,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifdef RGB_MATRIX_ENABLE
+#  define WS2812_DI_PIN F7
 #  define RGB_DI_PIN F7
 #  define WS2812_DI_PIN F7
 #  define RGB_MATRIX_LED_COUNT 35
