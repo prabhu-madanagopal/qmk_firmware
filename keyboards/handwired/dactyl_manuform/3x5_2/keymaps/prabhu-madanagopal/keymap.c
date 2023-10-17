@@ -25,6 +25,8 @@ enum custom_keycodes {
     NXT_TAB = RCTL(KC_TAB),
     BACK = LGUI(KC_LBRC),
     FWD = LGUI(KC_RBRC),
+    ALT_O = ALT_T(KC_O),
+    ALT_EQL = ALT_T(KC_EQL),
     CTL_E = CTL_T(KC_E),
     CTL_T = CTL_T(KC_T),
     CTL_MIN = CTL_T(KC_MINUS),
@@ -47,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       */
     [_DVORAK] = LAYOUT_split_3x5_2(
         KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,                               KC_F,    KC_G,    KC_C,    KC_R,    KC_L,
-        KC_A,    KC_O,    CTL_E,   KC_U,    KC_I,                               KC_D,    KC_H,    CTL_T,   KC_N,    KC_S,
+        KC_A,    ALT_O,   CTL_E,   KC_U,    KC_I,                               KC_D,    KC_H,    CTL_T,   KC_N,    KC_S,
         KC_SLSH, KC_Q,    KC_J,    KC_K,    KC_X,                               KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,
                                    CSA_SPC, O_LSFT,                             O_LGUI,  SPECIAL
     ),
@@ -66,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       */
     [_SPECIAL] = LAYOUT_split_3x5_2(
         KC_ESC,  KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_CIRC, KC_AMPR, KC_ASTR, KC_COLN, KC_BSPC,
-        KC_TAB,  KC_EQL,  CTL_MIN, KC_SCLN, KC_EXLM,                            KC_BSLS, KC_LCBR, CTL_RCB, KC_PIPE, KC_ENT,
+        KC_TAB,  ALT_EQL,  CTL_MIN, KC_SCLN, KC_EXLM,                            KC_BSLS, KC_LCBR, CTL_RCB, KC_PIPE, KC_ENT,
         KC_TILD, KC_GRV,  KC_UNDS, KC_COLN, _______,                            KC_LBRC, KC_LPRN, KC_RPRN, KC_RBRC, NAV,
                                    DVORAK, O_LSFT,                              O_LGUI,  NUM
     ),

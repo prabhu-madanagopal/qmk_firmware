@@ -31,10 +31,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SERIAL_USART_TX_PIN GP0     // USART TX pin
 #define SERIAL_USART_RX_PIN GP1     // USART RX pin
 #define SERIAL_PIO_USE_PIO0
+#define WS2812_PIO_USE_PIO1 // Force the usage of PIO1 peripheral, by default the WS2812 implementation uses the PIO0 peripheral
 #define SERIAL_USART_TIMEOUT     100  // USART driver timeout. default 100
 #define SERIAL_USART_SPEED 921600
 #define SERIAL_USART_PIN_SWAP      // Swap TX and RX pins if keyboard is master halve. (Only available on some MCUs)
-#define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
 #undef TAPPING_TERM
 #define TAPPING_TERM 240
@@ -84,6 +84,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#undef PERMISSIVE_HOLD
 #define MASTER_RIGHT
 #ifdef RGBLIGHT_ENABLE
+#  define WS2812_DI_PIN GP26
 #  define RGB_DI_PIN F7
 #  define RGBLED_NUM 36
 #  define RGBLED_SPLIT { 18, 18 }
@@ -125,6 +126,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifdef RGB_MATRIX_ENABLE
+#  define WS2812_DI_PIN GP26
 #  define RGB_DI_PIN GP26
 #  define RGB_MATRIX_LED_COUNT 36
 #  define RGB_MATRIX_SPLIT { 18, 18 }
