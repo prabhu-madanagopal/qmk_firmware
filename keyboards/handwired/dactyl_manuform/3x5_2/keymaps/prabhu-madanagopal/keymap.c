@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       */
     [_SPECIAL] = LAYOUT_split_3x5_2(
         KC_ESC,  KC_AT,   KC_DOT,  KC_DLR,  KC_ASTR,                            KC_CIRC, KC_AMPR, KC_PERC, KC_EXLM, KC_BSPC,
-        KC_TAB,  KC_EQL,  CTL_MIN, KC_SCLN, KC_PLUS,                            KC_BSLS, KC_LCBR, CTL_RCB, KC_PIPE, KC_ENT,
+        KC_TAB,  ALT_EQL,  CTL_MIN, KC_SCLN, KC_PLUS,                            KC_BSLS, KC_LCBR, CTL_RCB, KC_PIPE, KC_ENT,
         KC_TILD, KC_GRV,  KC_UNDS, KC_COLN, KC_HASH,                            KC_LBRC, KC_LPRN, KC_RPRN, KC_RBRC, NAV,
                                    DVORAK, O_LSFT,                              O_LGUI,  NUM
     ),
@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       */
     [_NUMERAL] = LAYOUT_split_3x5_2(
         KC_ESC,  KC_AT,   KC_DOT,  KC_DLR,  KC_ASTR,                            KC_MINS, KC_7,    KC_8,    KC_9, KC_BSPC,
-        KC_TAB,  KC_EQL,  KC_MINS, KC_SCLN, KC_PLUS,                            KC_EQL,  KC_4,    KC_5,    KC_6, KC_ENT,
+        KC_TAB,  ALT_EQL,  KC_MINS, KC_SCLN, KC_PLUS,                            KC_EQL,  KC_4,    KC_5,    KC_6, KC_ENT,
         KC_SLSH, KC_GRV,  KC_UNDS, KC_COLN, KC_HASH,                            KC_0,    KC_1,    KC_2,    KC_3, NAV,
                                    DVORAK, O_LSFT,                              O_LGUI,  SPECIAL
     ),
