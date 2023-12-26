@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // wiring of each half
 #define MATRIX_COL_PINS { GP2,GP3,GP4,GP5,GP6 }
-#define MATRIX_ROW_PINS { GP11,GP10,GP9,GP8 }
+#define MATRIX_ROW_PINS { GP8,GP9,GP10,GP11 }
 
 #define DIODE_DIRECTION ROW2COL
 
