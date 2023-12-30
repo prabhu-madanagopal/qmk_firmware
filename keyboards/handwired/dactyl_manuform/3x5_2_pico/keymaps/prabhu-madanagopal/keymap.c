@@ -30,7 +30,7 @@ enum custom_keycodes {
     CTL_E = CTL_T(KC_E),
     CTL_T = CTL_T(KC_T),
     CTL_MIN = CTL_T(KC_MINUS),
-    CTL_RCB = CTL_T(KC_RCBR),
+    CTL_RBR = CTL_T(KC_RBRC),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -57,9 +57,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
       * │ESC│ @ │ . │ $ │ * │       │ ^ │ & │ % │ ! │BSP│
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │TAB│ = │ - │ ; │ + │       │ \ │ { │ } │ | │ENT│
+      * │TAB│ = │ - │ ; │ + │       │ \ │ [ │ ] │ | │ENT│
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │ ~ │ ` │ _ │ : │ # │       │ [ │ ( │ ) │ ] │NAV│
+      * │ ~ │ ` │ _ │ : │ # │       │ { │ ( │ ) │ } │NAV│
       * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
       *               ┌───┐           ┌───┐
       *               │DVK├───┐   ┌───┤NUM│
@@ -68,8 +68,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       */
     [_SPECIAL] = LAYOUT_split_3x5_2_pico(
         KC_ESC,  KC_AT,   KC_DOT,  KC_DLR,  KC_ASTR,                            KC_CIRC, KC_AMPR, KC_PERC, KC_EXLM, KC_BSPC,
-        KC_TAB,  ALT_EQL,  CTL_MIN, KC_SCLN, KC_PLUS,                            KC_BSLS, KC_LCBR, CTL_RCB, KC_PIPE, KC_ENT,
-        KC_TILD, KC_GRV,  KC_UNDS, KC_COLN, KC_HASH,                            KC_LBRC, KC_LPRN, KC_RPRN, KC_RBRC, NAV,
+        KC_TAB,  ALT_EQL, CTL_MIN, KC_SCLN, KC_PLUS,                            KC_BSLS, KC_LBRC, CTL_RBR, KC_PIPE, KC_ENT,
+        KC_TILD, KC_GRV,  KC_UNDS, KC_COLN, KC_HASH,                            KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, NAV,
                                    DVORAK, O_LSFT,                              O_LGUI,  NUM
     ),
 
@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       */
     [_NUMERAL] = LAYOUT_split_3x5_2_pico(
         KC_ESC,  KC_AT,   KC_DOT,  KC_DLR,  KC_ASTR,                            KC_MINS, KC_7,    KC_8,    KC_9, KC_BSPC,
-        KC_TAB,  ALT_EQL,  KC_MINS, KC_SCLN, KC_PLUS,                            KC_EQL,  KC_4,    KC_5,    KC_6, KC_ENT,
+        KC_TAB,  ALT_EQL, KC_MINS, KC_SCLN, KC_PLUS,                            KC_EQL,  KC_4,    KC_5,    KC_6, KC_ENT,
         KC_SLSH, KC_GRV,  KC_UNDS, KC_COLN, KC_HASH,                            KC_0,    KC_1,    KC_2,    KC_3, NAV,
                                    DVORAK, O_LSFT,                              O_LGUI,  SPECIAL
     ),
@@ -108,8 +108,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       */
     [_NAVIGATION] = LAYOUT_split_3x5_2_pico(
         KC_ESC,  KC_WH_L, KC_MS_U, KC_WH_R, KC_PERC,                            BACK,    PRV_TAB, NXT_TAB, FWD,     KC_BSPC,
-        KC_TAB,  KC_MS_L, KC_MS_D, KC_MS_R, KC_DEL,                             KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
-        KC_TILD, KC_BTN2, KC_WH_U, KC_WH_D, KC_DOT,                             KC_BTN1, KC_ACL0, KC_ACL1, KC_ACL2, MEDIA,
+        KC_TAB,  KC_MS_L, KC_MS_D, KC_MS_R, KC_PGUP,                            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
+        KC_TILD, KC_BTN2, KC_WH_U, KC_WH_D, KC_PGDN,                            KC_BTN1, KC_ACL0, KC_ACL1, KC_ACL2, MEDIA,
                                    DVORAK, O_LSFT,                              O_LGUI,  SPECIAL
     ),
 
