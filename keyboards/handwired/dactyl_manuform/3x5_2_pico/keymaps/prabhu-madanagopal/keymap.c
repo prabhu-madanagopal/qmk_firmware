@@ -9,6 +9,7 @@ enum layers {
     _NUMERAL,
     _NAVIGATION,
     _MEDIA,
+    _FN,
 };
 // Quantum keys / Abbreviations
 enum custom_keycodes {
@@ -18,6 +19,7 @@ enum custom_keycodes {
     NUM = TO(_NUMERAL),
     NAV = TO(_NAVIGATION),
     MEDIA = TO(_MEDIA),
+    FN = TO(_FN),
     CSA_SPC = MEH_T(KC_SPC),
     O_LGUI = OSM(MOD_LGUI),
     O_LSFT = OSM(MOD_LSFT),
@@ -57,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
       * │ESC│ @ │ . │ $ │ * │       │ ^ │ & │ % │ ! │BSP│
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │TAB│ = │ - │ ; │ + │       │ \ │ [ │ ] │ | │ENT│
+      * │TAB│ = │ - │ ; │FN │       │ \ │ [ │ ] │ | │ENT│
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
       * │ ~ │ ` │ _ │ : │ # │       │ { │ ( │ ) │ } │NAV│
       * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
@@ -68,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       */
     [_SPECIAL] = LAYOUT_split_3x5_2_pico(
         KC_ESC,  KC_AT,   KC_DOT,  KC_DLR,  KC_ASTR,                            KC_CIRC, KC_AMPR, KC_PERC, KC_EXLM, KC_BSPC,
-        KC_TAB,  ALT_EQL, CTL_MIN, KC_SCLN, KC_PLUS,                            KC_BSLS, KC_LBRC, CTL_RBR, KC_PIPE, KC_ENT,
+        KC_TAB,  ALT_EQL, CTL_MIN, KC_SCLN, FN,                                 KC_BSLS, KC_LBRC, CTL_RBR, KC_PIPE, KC_ENT,
         KC_TILD, KC_GRV,  KC_UNDS, KC_COLN, KC_HASH,                            KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, NAV,
                                    DVORAK, O_LSFT,                              O_LGUI,  NUM
     ),
@@ -130,6 +132,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,  KC_WH_L, RGB_SPI, KC_WH_R, KC_PERC,                            BACK,    PRV_TAB, NXT_TAB, FWD,     KC_BSPC,
         KC_TAB,  RGB_SAD, RGB_SPD, RGB_SAI, KC_DEL,                             RGB_HUD, RGB_VAD, RGB_VAI, RGB_HUI, KC_ENT,
         KC_TILD, KC_BTN2, KC_WH_U, KC_WH_D, KC_DOT,                             RGB_TOG, RGB_MOD, KC_ACL1, KC_ACL2, _______,
+                                   DVORAK, O_LSFT,                              O_LGUI,  SPECIAL
+    ),
+     /*
+      * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
+      * │ESC│ @ │ . │ $ │ * │       │ - │ F7│ F8│ F9│BSP│
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │TAB│ = │ - │ ; │ + │       │ = │ F4│ F5│ F6│ENT│
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │ / │ ` │ _ │ : │ # │       │ F0│ F1│ F2│ F3│NAV│
+      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
+      *               ┌───┐           ┌───┐
+      *               │DVK├───┐   ┌───┤SYM│
+      *               └───┤SFT│   │GUI├───┘
+      *                   └───┘   └───┘
+      */
+    [_FN] = LAYOUT_split_3x5_2_pico(
+        KC_ESC,  KC_AT,   KC_DOT,  KC_DLR,  KC_ASTR,                            KC_MINS, KC_F7,    KC_F8,    KC_F9, KC_BSPC,
+        KC_TAB,  ALT_EQL, KC_MINS, KC_SCLN, KC_PLUS,                            KC_EQL,  KC_F4,    KC_F5,    KC_F6, KC_ENT,
+        KC_SLSH, KC_GRV,  KC_UNDS, KC_COLN, KC_HASH,                            KC_F0,   KC_F1,    KC_F2,    KC_F3, NAV,
                                    DVORAK, O_LSFT,                              O_LGUI,  SPECIAL
     )
 
