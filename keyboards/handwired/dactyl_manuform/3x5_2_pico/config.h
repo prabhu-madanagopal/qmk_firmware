@@ -35,10 +35,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SERIAL_PIO_USE_PIO0
 #define SERIAL_USART_TIMEOUT     100  // USART driver timeout. default 100
 #define SERIAL_USART_SPEED 921600
-#define TAPPING_FORCE_HOLD
+
+// Tap-hold configuration for home row mods.
 #undef TAPPING_TERM
-#define TAPPING_TERM 240
-#define RETRO_TAPPING
+#define TAPPING_TERM 175
+#define ACHORDION_STREAK
+#define PERMISSIVE_HOLD
+#define QUICK_TAP_TERM_PER_KEY
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 200U

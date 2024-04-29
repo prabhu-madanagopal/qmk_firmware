@@ -28,3 +28,6 @@ RGB_MATRIX_SUPPORTED = yes
 
 #SERIAL_DRIVER = vendor
 WS2812_DRIVER = vendor
+
+#achordion for home row mod fixes
+SRC += features/achordion.c
