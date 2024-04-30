@@ -22,7 +22,8 @@ enum custom_keycodes {
     MEDIA = TO(_MEDIA),
     FN = TO(_FN),
     CSA_SPC = MEH_T(KC_SPC),
-    O_LGUI = OSM(MOD_LGUI),
+    CSA_SYM = MEH_T(TO(_SYMBOL)),
+    SFT_NUM = SFT_T(TO(_NUMERAL)),
     O_LSFT = OSM(MOD_LSFT),
     PRV_TAB = LCTL(LSFT(KC_TAB)),
     NXT_TAB = RCTL(KC_TAB),
@@ -60,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,                               KC_F,    KC_G,    KC_C,    KC_R,    KC_L,
         KC_A,    ALT_O,   GUI_E,   CTL_U,   KC_I,                               KC_D,    CTL_H,   GUI_T,   ALT_N,   KC_S,
         KC_SLSH, KC_Q,    KC_J,    KC_K,    KC_X,                               KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,
-                                   CSA_SPC, O_LSFT,                             NUM,     SYM
+                                   CSA_SPC, O_LSFT,                             SFT_NUM, CSA_SYM
     ),
      /*
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
@@ -216,6 +217,20 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   if (!process_achordion(keycode, record)) { return false; }
   // macros ...
+     switch (keycode) {
+        case CSA_SYM:
+            if (record->tap.count && record->event.pressed) {
+                layer_on(_SYMBOL);
+                return false;        // Return false to ignore further processing of key
+            }
+            break;
+        case SFT_NUM:
+            if (record->tap.count && record->event.pressed) {
+                layer_on(_NUMERAL);
+                return false;        // Return false to ignore further processing of key
+            }
+            break;
+    }
 
   return true;
 }
