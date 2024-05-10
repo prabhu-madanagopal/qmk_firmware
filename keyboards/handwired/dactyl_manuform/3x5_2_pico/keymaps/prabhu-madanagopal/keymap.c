@@ -7,162 +7,96 @@
 enum layers {
     _DVORAK = 0,
     _SYMBOL,
-    _NUMERAL,
     _NAVIGATION,
-    _MEDIA,
-    _FN,
 };
 // Quantum keys / Abbreviations
 enum custom_keycodes {
     VVV = KC_TRNS,
     SYM = TO(_SYMBOL),
     DVORAK = TO(_DVORAK),
-    NUM = TO(_NUMERAL),
     NAV = TO(_NAVIGATION),
-    MEDIA = TO(_MEDIA),
-    FN = TO(_FN),
     CSA_SPC = MEH_T(KC_SPC),
     CSA_SYM = MEH_T(TO(_SYMBOL)),
-    SFT_NUM = SFT_T(TO(_NUMERAL)),
     O_LSFT = OSM(MOD_LSFT),
-    PRV_TAB = LCTL(LSFT(KC_TAB)),
-    NXT_TAB = RCTL(KC_TAB),
-    BACK = LGUI(KC_LBRC),
-    FWD = LGUI(KC_RBRC),
-    ALT_O = ALT_T(KC_O),
-    ALT_N = ALT_T(KC_N),
-    ALT_EQL = ALT_T(KC_EQL),
-    ALT_PIP = ALT_T(KC_PIPE),
-    GUI_E = GUI_T(KC_E),
-    GUI_T = GUI_T(KC_T),
-    GUI_MIN = GUI_T(KC_MINUS),
-    GUI_RBR = GUI_T(KC_RBRC),
-    CTL_U = CTL_T(KC_U),
-    CTL_H = CTL_T(KC_H),
-    CTL_SCN = CTL_T(KC_SCLN),
-    CTL_LBR = CTL_T(KC_LBRC),
+
+    LCTL_A = LCTL_T(KC_A),
+    LALT_O = LALT_T(KC_O),
+    LGUI_E = LGUI_T(KC_E),
+    LSFT_U = LSFT_T(KC_U),
+    RSFT_H = RSFT_T(KC_H),
+    RGUI_T = RGUI_T(KC_T),
+    RALT_N = RALT_T(KC_N),
+    RCTL_S = RCTL_T(KC_S),
+    LCTL_1 = LCTL_T(KC_1),
+    LALT_2 = LALT_T(KC_2),
+    LGUI_3 = LGUI_T(KC_3),
+    LSFT_4 = LSFT_T(KC_4),
+    RSFT_7 = RSFT_T(KC_7),
+    RGUI_8 = RGUI_T(KC_8),
+    RALT_9 = RALT_T(KC_9),
+    RCTL_0 = RCTL_T(KC_0),
+
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      /*
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-      * │ ' │ , │ . │ P │ Y │       │ F │ G │ C │ R │ L │
+      * │' "│, <│. >│ P │ Y │       │ F │ G │ C │ R │ L │
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
       * │ A │ O │ E │ U │ I │       │ D │ H │ T │ N │ S │
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │ / │ Q │ J │ K │ X │       │ B │ M │ W │ V │ Z │
+      * │/ ?│ Q │ J │ K │ X │       │ B │ M │ W │ V │ Z │
       * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
       *               ┌───┐           ┌───┐
       *               │SPC├───┐   ┌───┤SYM│
-      *               └───┤SFT│   │NUM├───┘
+      *               └───┤TAB│   │ENT├───┘
       *                   └───┘   └───┘
       */
     [_DVORAK] = LAYOUT_split_3x5_2_pico(
         KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,                               KC_F,    KC_G,    KC_C,    KC_R,    KC_L,
-        KC_A,    ALT_O,   GUI_E,   CTL_U,   KC_I,                               KC_D,    CTL_H,   GUI_T,   ALT_N,   KC_S,
+        LCTL_A,  LALT_O,  LGUI_E,  LSFT_U,  KC_I,                               KC_D,    RSFT_H,  RGUI_T,  RALT_N,  RCTL_S,
         KC_SLSH, KC_Q,    KC_J,    KC_K,    KC_X,                               KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,
-                                   CSA_SPC, O_LSFT,                             SFT_NUM, CSA_SYM
+                                   KC_SPC,  KC_TAB,                             KC_ENT,  SYM
     ),
      /*
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-      * │ESC│ @ │ . │ $ │ * │       │ ^ │ & │ % │ ! │BSP│
+      * │ESC│` ~│; :│- _│+ =│       │. >│[ {│] }│\ |│BSP│
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │TAB│ = │ - │ ; │ + │       │ \ │ [ │ ] │ | │ENT│
+      * │1 !│2 @│3 #│4 $│5 %│       │6 ^│7 &│8 *│9 (│0 )│
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │ ~ │ ` │ _ │ : │ # │       │ { │ ( │ ) │ } │NAV│
+      * │F1 │F2 │F3 │F4 │F5 │       │F6 │F7 │F8 │F9 │NAV│
       * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
       *               ┌───┐           ┌───┐
       *               │DVK├───┐   ┌───┤   │
-      *               └───┤SFT│   │NUM├───┘
+      *               └───┤TAB│   │ENT├───┘
       *                   └───┘   └───┘
       */
     [_SYMBOL] = LAYOUT_split_3x5_2_pico(
-        KC_ESC,  KC_AT,   KC_DOT,  KC_DLR,  KC_ASTR,                            KC_CIRC, KC_AMPR, KC_PERC, KC_EXLM, KC_BSPC,
-        KC_TAB,  ALT_EQL, GUI_MIN, CTL_SCN, KC_PLUS,                                 KC_BSLS, CTL_LBR, GUI_RBR, ALT_PIP, KC_ENT,
-        KC_TILD, KC_GRV,  KC_UNDS, KC_COLN, KC_HASH,                            KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, NAV,
-                                   DVORAK, O_LSFT,                              NUM,     _______
+        KC_ESC,  KC_GRV,  KC_SCLN, KC_MINS, KC_EQL,                             KC_DOT,  KC_LBRC, KC_RBRC, KC_BSLS, KC_BSPC,
+        LCTL_1,  LALT_2,  LGUI_3,  LSFT_4,  KC_5,                               KC_6,    RSFT_7,  RGUI_8,  RALT_9,  RCTL_0,
+        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_F6,   KC_F7,   KC_F8,   KC_F9,   NAV,
+                                   DVORAK,  KC_TAB,                             KC_ENT,  _______
     ),
 
      /*
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-      * │ESC│ @ │ . │ $ │ * │       │ - │ 7 │ 8 │ 9 │BSP│
+      * │ESC│   │   │   │   │       │PGU│   │UP │   │BSP│
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │TAB│ = │ - │ ; │ + │       │ = │ 4 │ 5 │ 6 │ENT│
+      * │   │   │RMD│MOD│TOG│       │PGD│<- │DN │-> │   │
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │ / │ ` │ _ │ : │ # │       │ 0 │ 1 │ 2 │ 3 │FN │
+      * │   │   │   │   │   │       │   │   │   │   │   │
       * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
       *               ┌───┐           ┌───┐
       *               │DVK├───┐   ┌───┤SYM│
-      *               └───┤SFT│   │   ├───┘
-      *                   └───┘   └───┘
-      */
-    [_NUMERAL] = LAYOUT_split_3x5_2_pico(
-        KC_ESC,  KC_AT,   KC_DOT,  KC_DLR,  KC_ASTR,                            KC_MINS, KC_7,    KC_8,    KC_9, KC_BSPC,
-        KC_TAB,  ALT_EQL, KC_MINS, CTL_SCN, KC_PLUS,                            KC_EQL,  KC_4,    KC_5,    KC_6, KC_ENT,
-        KC_SLSH, KC_GRV,  KC_UNDS, KC_COLN, KC_HASH,                            KC_0,    KC_1,    KC_2,    KC_3, FN,
-                                   DVORAK, O_LSFT,                              _______, SYM
-    ),
-
-     /*
-      * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-      * │ESC│WHL│MSU│WHR│ % │       │BCK│PTB│NTB│FWD│BSP│
-      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │TAB│MSL│MSD│MSR│DEL│       │<- │DN │ UP│RGT│ENT│
-      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │ ~ │RCK│WHU│WHD│ . │       │LCK│AC1│AC2│AC3│MDA│
-      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
-      *               ┌───┐           ┌───┐
-      *               │DVK├───┐   ┌───┤SYM│
-      *               └───┤SFT│   │NUM├───┘
+      *               └───┤TAB│   │ENT├───┘
       *                   └───┘   └───┘
       */
     [_NAVIGATION] = LAYOUT_split_3x5_2_pico(
-        KC_ESC,  KC_WH_L, KC_MS_U, KC_WH_R, KC_PERC,                            BACK,    PRV_TAB, NXT_TAB, FWD,     KC_BSPC,
-        KC_TAB,  KC_MS_L, KC_MS_D, KC_MS_R, KC_PGUP,                            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
-        KC_TILD, KC_BTN2, KC_WH_U, KC_WH_D, KC_PGDN,                            KC_BTN1, KC_ACL0, KC_ACL1, KC_ACL2, MEDIA,
-                                   DVORAK, O_LSFT,                              NUM,     SYM
-    ),
-
-     /*
-      * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-      * │ESC│WHL│SPI│WHR│ % │       │BCK│PTB│NTB│FWD│BSP│
-      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │TAB│SAD│SPD│SAI│DEL│       │HUD│VAD│VAI│HUI│ENT│
-      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │ ~ │RCK│WHU│WHD│ . │       │TOG│MOD│AC2│AC3│NAV│
-      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
-      *               ┌───┐           ┌───┐
-      *               │DVK├───┐   ┌───┤SYM│
-      *               └───┤SFT│   │NUM├───┘
-      *                   └───┘   └───┘
-      */
-    [_MEDIA] = LAYOUT_split_3x5_2_pico(
-        KC_ESC,  KC_WH_L, RGB_SPI, KC_WH_R, KC_PERC,                            BACK,    PRV_TAB, NXT_TAB, FWD,     KC_BSPC,
-        KC_TAB,  RGB_SAD, RGB_SPD, RGB_SAI, KC_DEL,                             RGB_HUD, RGB_VAD, RGB_VAI, RGB_HUI, KC_ENT,
-        KC_TILD, KC_BTN2, KC_WH_U, KC_WH_D, KC_DOT,                             RGB_TOG, RGB_MOD, KC_ACL1, KC_ACL2, NAV,
-                                   DVORAK, O_LSFT,                              NUM,     SYM
-    ),
-     /*
-      * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-      * │ESC│ @ │ . │ $ │ * │       │ - │ F7│ F8│ F9│BSP│
-      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │TAB│ = │ - │ ; │ + │       │ = │ F4│ F5│ F6│ENT│
-      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │ / │ ` │ _ │ : │ # │       │ F0│ F1│ F2│ F3│NAV│
-      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
-      *               ┌───┐           ┌───┐
-      *               │DVK├───┐   ┌───┤SYM│
-      *               └───┤SFT│   │NUM├───┘
-      *                   └───┘   └───┘
-      */
-    [_FN] = LAYOUT_split_3x5_2_pico(
-        KC_ESC,  KC_AT,   KC_DOT,  KC_DLR,  KC_ASTR,                            KC_MINS, KC_F7,    KC_F8,    KC_F9, KC_BSPC,
-        KC_TAB,  ALT_EQL, GUI_MIN, CTL_SCN, KC_PLUS,                            KC_EQL,  KC_F4,    KC_F5,    KC_F6, KC_ENT,
-        KC_SLSH, KC_GRV,  KC_UNDS, KC_COLN, KC_HASH,                            KC_0,    KC_F1,    KC_F2,    KC_F3, NAV,
-                                   DVORAK, O_LSFT,                              NUM,     SYM
+        KC_ESC,  _______, _______, _______, _______,                            KC_PGUP, _______, KC_UP,   _______, KC_BSPC,
+        _______, _______, RGB_RMOD,RGB_MOD, RGB_TOG,                            KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______,
+        _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______,
+                                   DVORAK,  KC_TAB,                             KC_ENT,     SYM
     )
-
-
 
 };
 
@@ -173,14 +107,8 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         hsv.h = 126;
     } else if (layer_state_is(_SYMBOL)){
         hsv.h = 0;
-    } else if (layer_state_is(_NUMERAL)){
-        hsv.h = 84;
     } else if (layer_state_is(_NAVIGATION)){
-        hsv.h = 168;
-    } else if (layer_state_is(_MEDIA)){
-        hsv.h = 42;
-    } else if (layer_state_is(_FN)){
-        hsv.h = 210;
+        hsv.h = 84;
     }
 
     if (hsv.v > rgb_matrix_get_val()) {
@@ -202,11 +130,10 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
   // lead to missed triggers in fast typing. Here, returning 0 means we
   // instead want to "force hold" and disable key repeating.
   switch (keycode) {
-    case CTL_U:
+    case LSFT_U:
     // Repeating is useful for Vim navigation keys.
-    case CTL_H:
-    case GUI_T:
-    case ALT_N:
+    case RSFT_H:
+    case RALT_N:
       return QUICK_TAP_TERM;  // Enable key repeating.
     default:
       return 0;  // Otherwise, force hold and disable key repeating.
@@ -217,21 +144,6 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   if (!process_achordion(keycode, record)) { return false; }
   // macros ...
-     switch (keycode) {
-        case CSA_SYM:
-            if (record->tap.count && record->event.pressed) {
-                layer_on(_SYMBOL);
-                return false;        // Return false to ignore further processing of key
-            }
-            break;
-        case SFT_NUM:
-            if (record->tap.count && record->event.pressed) {
-                layer_on(_NUMERAL);
-                return false;        // Return false to ignore further processing of key
-            }
-            break;
-    }
-
   return true;
 }
 
