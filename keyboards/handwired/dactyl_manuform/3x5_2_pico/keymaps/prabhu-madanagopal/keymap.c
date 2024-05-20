@@ -35,6 +35,11 @@ enum custom_keycodes {
     RGUI_8 = RGUI_T(KC_8),
     RALT_9 = RALT_T(KC_9),
     RCTL_0 = RCTL_T(KC_0),
+    CTL_F11= LCTL_T(KC_F11),
+    ALT_F12= LALT_T(KC_F12),
+    SFT_LT = RSFT_T(KC_LEFT),
+    GUI_DN = RGUI_T(KC_DOWN),
+    ALT_RT = RALT_T(KC_RGHT),
 
 };
 
@@ -64,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
       * │1 !│2 @│3 #│4 $│5 %│       │6 ^│7 &│8 *│9 (│0 )│
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │F1 │F2 │F3 │F4 │F5 │       │F6 │F7 │F8 │F9 │NAV│
+      * │   │   │   │   │   │       │   │   │   │   │NAV│
       * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
       *               ┌───┐           ┌───┐
       *               │DVK├───┐   ┌───┤   │
@@ -74,17 +79,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_SYMBOL] = LAYOUT_split_3x5_2_pico(
         KC_ESC,  KC_GRV,  KC_SCLN, KC_MINS, KC_EQL,                             KC_DOT,  KC_LBRC, KC_RBRC, KC_BSLS, KC_BSPC,
         LCTL_1,  LALT_2,  LGUI_3,  LSFT_4,  KC_5,                               KC_6,    RSFT_7,  RGUI_8,  RALT_9,  RCTL_0,
-        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_F6,   KC_F7,   KC_F8,   KC_F9,   NAV,
+        _______, _______, _______, _______, _______,                            _______, _______, _______, _______, NAV,
                                    DVORAK,  KC_TAB,                             KC_ENT,  _______
     ),
 
      /*
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-      * │ ⎋ │   │   │   │   │       │ ↑ │   │ ▲ │   │ ⌫ │
+      * │ ⎋ │RMD│MOD│TOG│ ↑ │       │ ⇞ │   │ ▲ │   │ ⌫ │
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │   │   │RMD│MOD│TOG│       │ ↓ │ ◀ │ ▼ │ ▶ │   │
+      * │F11│F12│ ⌘ │ ⇧ │ ↓ │       │ ⇟ │ ◀ │ ▼ │ ▶ │ ⎈ │
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │   │   │   │   │   │       │   │   │   │   │   │
+      * │F1 │F2 │F3 │F4 │F5 │       │F6 │F7 │F8 │F9 │F10│
       * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
       *               ┌───┐           ┌───┐
       *               │DVK├───┐   ┌───┤SYM│
@@ -92,9 +97,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                   └───┘   └───┘
       */
     [_NAVIGATION] = LAYOUT_split_3x5_2_pico(
-        KC_ESC,  _______, _______, _______, _______,                            KC_PGUP, _______, KC_UP,   _______, KC_BSPC,
-        _______, _______, RGB_RMOD,RGB_MOD, RGB_TOG,                            KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______,
-        _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______,
+        KC_ESC,  RGB_RMOD,RGB_MOD, RGB_TOG, KC_HOME,                            KC_PGUP, _______, KC_UP,   _______, KC_BSPC,
+        CTL_F11, ALT_F12, KC_LGUI, KC_LSFT, KC_END,                             KC_PGDN, SFT_LT,  GUI_DN,  ALT_RT,  KC_RCTL,
+        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,
                                    DVORAK,  KC_TAB,                             KC_ENT,  SYM
     )
 
@@ -134,6 +139,9 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
     // Repeating is useful for Vim navigation keys.
     case RSFT_H:
     case RALT_N:
+    case SFT_LT:
+    case GUI_DN:
+    case ALT_RT:
       return QUICK_TAP_TERM;  // Enable key repeating.
     default:
       return 0;  // Otherwise, force hold and disable key repeating.
