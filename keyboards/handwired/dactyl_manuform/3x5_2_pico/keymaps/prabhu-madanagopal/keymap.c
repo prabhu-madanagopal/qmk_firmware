@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
      /*
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-      * │ ⎋ │` ~│; :│- _│= +│       │. >│[ {│] }│\ |│ ⌫ │
+      * │ ⎋ │` ~│. >│- _│= +│       │; :│[ {│] }│\ |│ ⌫ │
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
       * │1 !│2 @│3 #│4 $│5 %│       │6 ^│7 &│8 *│9 (│0 )│
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                   └───┘   └───┘
       */
     [_SYMBOL] = LAYOUT_split_3x5_2_pico(
-        KC_ESC,  KC_GRV,  KC_SCLN, KC_MINS, KC_EQL,                             KC_DOT,  KC_LBRC, KC_RBRC, KC_BSLS, KC_BSPC,
+        KC_ESC,  KC_GRV,  KC_DOT,  KC_MINS, KC_EQL,                             KC_SCLN,  KC_LBRC, KC_RBRC, KC_BSLS, KC_BSPC,
         LCTL_1,  LALT_2,  LGUI_3,  LSFT_4,  KC_5,                               KC_6,    RSFT_7,  RGUI_8,  RALT_9,  RCTL_0,
         _______, _______, _______, _______, _______,                            _______, _______, _______, _______, NAV,
                                    DVORAK,  KC_TAB,                             KC_ENT,  _______
