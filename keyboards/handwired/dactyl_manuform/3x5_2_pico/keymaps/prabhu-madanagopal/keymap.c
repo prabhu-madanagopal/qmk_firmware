@@ -105,29 +105,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    HSV hsv = rgb_matrix_get_hsv();
+/* bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) { */
+/*     HSV hsv = rgb_matrix_get_hsv(); */
 
-    if (layer_state_is(_DVORAK)) {
-        hsv.h = 126;
-    } else if (layer_state_is(_SYMBOL)){
-        hsv.h = 0;
-    } else if (layer_state_is(_NAVIGATION)){
-        hsv.h = 84;
-    }
+/*     if (layer_state_is(_DVORAK)) { */
+/*         hsv.h = 126; */
+/*     } else if (layer_state_is(_SYMBOL)){ */
+/*         hsv.h = 0; */
+/*     } else if (layer_state_is(_NAVIGATION)){ */
+/*         hsv.h = 84; */
+/*     } */
 
-    if (hsv.v > rgb_matrix_get_val()) {
-        hsv.v = rgb_matrix_get_val();
-    }
-    RGB rgb = hsv_to_rgb(hsv);
+/*     if (hsv.v > rgb_matrix_get_val()) { */
+/*         hsv.v = rgb_matrix_get_val(); */
+/*     } */
+/*     RGB rgb = hsv_to_rgb(hsv); */
 
-    for (uint8_t i = led_min; i < led_max; i++) {
-        if (HAS_FLAGS(g_led_config.flags[i], 0x08)) { // 0x08 == LED_FLAG_INDICATOR
-            rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b);
-        }
-    }
-    return false;
-}
+/*     for (uint8_t i = led_min; i < led_max; i++) { */
+/*         if (HAS_FLAGS(g_led_config.flags[i], 0x08)) { // 0x08 == LED_FLAG_INDICATOR */
+/*             rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b); */
+/*         } */
+/*     } */
+/*     return false; */
+/* } */
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
   // If you quickly hold a tap-hold key after tapping it, the tap action is

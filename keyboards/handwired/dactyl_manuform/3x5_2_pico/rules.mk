@@ -18,13 +18,13 @@ RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 
 #LAYOUTS = split_3x5_3
 
-RGB_MATRIX_ENABLE = yes 			# Enable WS2812 RGB matrix
-RGB_MATRIX_DRIVER = WS2812
+RGB_MATRIX_ENABLE = no 			# Enable WS2812 RGB matrix
+#RGB_MATRIX_DRIVER = WS2812
 #RGBLIGHT_SUPPORTED = yes
-RGB_MATRIX_SUPPORTED = yes
+#RGB_MATRIX_SUPPORTED = yes
 
 #SERIAL_DRIVER = vendor
-WS2812_DRIVER = vendor
+#WS2812_DRIVER = vendor
 
 #achordion for home row mod fixes
 SRC += features/achordion.c
